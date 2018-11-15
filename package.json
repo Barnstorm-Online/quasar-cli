@@ -5,6 +5,9 @@
   "bin": {
     "quasar": "./bin/quasar"
   },
+  "scripts": {
+    "start": "node ./bin/quasar-config"
+  },
   "files": [
     "assets",
     "bin",
@@ -41,7 +44,6 @@
     "@babel/preset-env": "7.0.0-beta.54",
     "@babel/preset-stage-2": "7.0.0-beta.54",
     "@babel/runtime": "7.0.0-beta.54",
-    "ajv": "6.5.3",
     "autoprefixer": "9.1.5",
     "babel-loader": "8.0.0-beta.2",
     "babel-plugin-transform-imports": "1.5.1",
@@ -54,6 +56,7 @@
     "cross-spawn": "6.0.5",
     "css-loader": "1.0.0",
     "cssnano": "4.1.0",
+    "dotenv": "^6.1.0",
     "elementtree": "0.1.7",
     "express": "4.16.3",
     "fastclick": "1.0.6",
@@ -114,5 +117,6 @@
     "node": ">= 8.9.0",
     "npm": ">= 5.6.0",
     "yarn": ">= 1.6.0"
-  }
+  },
+  "devDependencies": {}
 }

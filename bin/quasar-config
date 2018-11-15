@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+const
+  parseArgs = require('minimist'),
+  env = require('../lib/helpers/environment')()
+
+
+const argv = parseArgs(process.argv.slice(2), {
+  alias: {
+    s: 'save',
+    h: 'help'
+  },
+  string: ['_'],
+  boolean: ['h']
+})
+
+if (argv.help) {
+  console.log(`
+  Description
+    Quasars equivalent of UNIX's printenv for Quasar 
+  Usage
+    $ quasar config
+  Options
+    --save, -s    Save your current variables to .env file
+    --help, -h    Displays this message
+  `)
+  process.exit(0)
+}
+
+/**
+ * TODO: add checks for valid ENVs and prompt with appropriate errors
+ * @example
+ * ...
+ * if (argv.envVariables[1] === '=') throw new Error('Must use KEY=VALUE without spaces')
+ * ...
+ */
+// require('../lib/helpers/ensure-argv')(argv, 'config')
+
+// Add the CLI ENV arguments
+if (argv._ && Array.isArray(argv._)) {
+  env.batchUpdate(argv._)
+}
+
+env.getAll().forEach((envValue)=>{
+  console.log(envValue)
+})
+console.log()
