@@ -2,16 +2,18 @@
 
 const
   parseArgs = require('minimist'),
-  env = require('../lib/helpers/environment')()
+  env = require('../lib/environment')()
 
 
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
+    v: 'verbose',
+    a: 'all',
     s: 'save',
     h: 'help'
   },
   string: ['_'],
-  boolean: ['h']
+  boolean: ['h', 'a', 's', 'v']
 })
 
 if (argv.help) {
@@ -21,8 +23,10 @@ if (argv.help) {
   Usage
     $ quasar config
   Options
-    --save, -s    Save your current variables to .env file
-    --help, -h    Displays this message
+    --save, -s      Save your current variables to .env file
+    --verbose, -v   Print all variables associated with quasar/development
+    --all, -a       Equivalent to printenv with quasars added variables
+    --help, -h      Displays this message
   `)
   process.exit(0)
 }
@@ -41,7 +45,9 @@ if (argv._ && Array.isArray(argv._)) {
   env.batchUpdate(argv._)
 }
 
-env.getAll().forEach((envValue)=>{
+let allEnvVars = env.getAll(argv.verbose, argv.all)
+
+allEnvVars.forEach((envValue)=>{
   console.log(envValue)
 })
 console.log()
