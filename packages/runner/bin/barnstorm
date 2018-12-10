@@ -1,0 +1,65 @@
+#!/usr/bin/env node
+
+const inversify = require('inversify')
+require('reflect-metadata')
+
+const Runner = require('../index')
+
+/**
+ * Create a basic config for the runner
+ */
+class CliInjectParams {
+  /**
+   * Configuration for The Runner
+   */
+  constructor () {
+    /**
+     * Should always run start() cmd by default
+     * @type {boolean}
+     */
+    this.auto = process.env.Q_CLI_AUTO || true
+    /**
+     * Slice the process arguments at this index
+     * @type {number}
+     */
+    this.sliceAt = 2
+    /**
+     * minimist configuration or false
+     * @type {boolean}
+     */
+    this.parseArgs = false
+
+    this.pkgName = '@barnstorm/cli'
+  }
+}
+// Decorate
+inversify.decorate(inversify.injectable(), CliInjectParams)
+
+/**
+ * Basic CLI Runner with a start override. Should find
+ * the right package and start it
+ */
+class CliRunner extends Runner {
+  start () {
+    console.log(`${this.cmd.length} arguments found:`, this.cmd)
+    if (this.cmd.length > 0) console.log(`Finding ${JSON.stringify(this.fetch(this.cmd[0]))}`)
+  }
+}
+
+// TODO: Iron out this abstraction in vanilla js
+// https://github.com/inversify/inversify-vanillajs-helpers
+
+// Decorate
+inversify.decorate(inversify.injectable(), CliRunner)
+// Inject the configuration to the first parameter
+inversify.decorate(inversify.inject('@barnstorm/cli-base-runtime-config'), CliRunner, 0)
+
+// Declare bindings
+let container = new inversify.Container()
+container.bind('@barnstorm/cli-base-runtime-config').to(CliInjectParams)
+container.bind('@barnstorm/cli').to(CliRunner)
+
+// Override example
+// container.rebind('@barnstorm/cli-runtime-config').to(CliInjectTest);
+
+container.get('@barnstorm/cli')

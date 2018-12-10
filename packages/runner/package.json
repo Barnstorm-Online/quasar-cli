@@ -71,6 +71,8 @@
     "http-proxy-middleware": "0.19.0",
     "import-local-file": "0.2.0",
     "inquirer": "6.2.0",
+    "inversify": "^5.0.1",
+    "inversify-vanillajs-helpers": "^2.0.0",
     "lodash.debounce": "4.0.8",
     "lodash.template": "4.4.0",
     "lodash.throttle": "4.1.1",
@@ -91,6 +93,7 @@
     "preload-webpack-plugin": "3.0.0-alpha.3",
     "quasar-extras": "2.0.8",
     "quasar-framework": "0.17.17",
+    "reflect-metadata": "^0.1.12",
     "register-service-worker": "1.5.2",
     "route-cache": "0.4.4",
     "selfsigned": "1.10.3",
@@ -121,6 +124,13 @@
     "yarn": ">= 1.6.0"
   },
   "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "lerna": "^3.6.0"
   }
 }
