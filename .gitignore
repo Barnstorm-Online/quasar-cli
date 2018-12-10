@@ -1,6 +1,9 @@
 # trevor tests
 .*.dockerfile
 
+# Ignore other Lock files
+#package-lock.json
+#yarn.lock
 ################################### NODEJS ###############################
 # Logs
 logs

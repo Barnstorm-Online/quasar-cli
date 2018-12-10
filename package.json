@@ -6,7 +6,8 @@
     "barnstorm": "./packages/cli/bin/quasar"
   },
   "scripts": {
-    "test": "echo I need some tests!"
+    "test": "echo Needs a test",
+    "test:ci": "trevor"
   },
   "files": [
     "assets",
@@ -45,7 +46,9 @@
     "yarn": ">= 1.6.0"
   },
   "devDependencies": {
-    "lerna": "^3.6.0"
+    "lerna": "^3.6.0",
+    "pnpm": "^2.21.1",
+    "trevor": "^2.3.0"
   },
   "dependencies": {
     "inversify": "^5.0.1",
