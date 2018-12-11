@@ -1,10 +1,17 @@
 language: node_js
 node_js:
-  - 9
-  - 8
+- 9
+- 8
 before_install:
-  - npm install -g pnpm
+- npm install -g pnpm
 install:
-  - pnpm install
+- pnpm install
 script:
-  - pnpm recursive test
+- pnpm recursive test
+- sonar-scanner
+addons:
+  sonarcloud:
+    organization: "barnstorm"
+    token:
+      secure: QkkiNXi9ix5IsHo+dxMsHJHRFmQiYE7bGCy7NWrSZ4odgjn0McMozT21NHbes+Wn5tbz5fcrabSYMwgWKbtm0HT7NEetGT14tO4tLvcR9lSdFd8CyQoQpl2p53jZg/oY43dbn12YwR0PmPiKZ1OY2nto9ai8d2THEdT/PuQsYIP83ofnr2XJrSq2ygAXH6wR7LIFMlK1g6a6FY7zstvp5gdtspzuaz+opF1T1Y6AgFco0l6D3rhhYXuVq3c4eRXLcrr8Kzw+QVZ1nRpKsfa85DqgTBMjnHTG8UmGs8ejJvaRrYuHCgX3sbdxh5beYKZ+MCYU4RizqGlE0rfw0CDe/tdPqSgHDrxVbgpJMNtMNRz804kcxFRNNX/ynAlKP/7aDNqnJRBkBZYg+fdGzkJBNkkkQD/F+gfQ0P7LYLLR/z/dEybc+SPpNDEqTwG6IUrHyGvCnc/r+fMPTGIrwViUYTMPWtdXmXND21t8KVcCS1vs8yUDrfhhlezJO78rSM0XlwyFi+7CBbS/0dEXMh0k201YzKFsI0a9r1Vlvo9nkqM6+6KlgxDQxMY+Qym2lTPsLdC7LFwFjPsRoFIXnHgo0y1VuCDkVCGOE3/Gbr1QRoOXSTmLx6vzrlOqqw5C/hp7yFWZ0/DboRA177SdpbR6y7Jz9EZ6XNZMVOApSS7ZsLA=
+
