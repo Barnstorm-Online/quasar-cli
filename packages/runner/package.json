@@ -1,5 +1,5 @@
 {
-  "name": "@barnstorm/cli",
+  "name": "@barnstorm/cli-runner",
   "version": "0.0.0",
   "description": "CLI Runner for Barnstorm Online Projects",
   "bin": {

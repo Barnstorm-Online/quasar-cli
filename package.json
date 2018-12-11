@@ -1,5 +1,5 @@
 {
-  "name": "barnstorm-cli",
+  "name": "@barnstorm/cli",
   "version": "0.0.0",
   "description": "Tools for Barnstorm Online Projects",
   "bin": {
@@ -53,5 +53,8 @@
   "dependencies": {
     "inversify": "^5.0.1",
     "reflect-metadata": "^0.1.12"
+  },
+  "badges": {
+    "travis": "[![Build Status](https://travis-ci.org/Barnstorm-Online/barnstorm-cli.svg?branch=master)](https://travis-ci.org/Barnstorm-Online/barnstorm-cli)"
   }
 }
