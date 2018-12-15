@@ -3,6 +3,7 @@ node_js:
 - 9
 - 8
 before_install:
+- git fetch --unshallow
 - npm install -g pnpm
 install:
 - pnpm install
