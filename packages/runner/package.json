@@ -51,7 +51,7 @@
     "babel-loader": "8.0.0-beta.2",
     "babel-plugin-transform-imports": "1.5.1",
     "chalk": "2.4.1",
-    "chokidar": "2.0.4",
+    "chokidar": "3.0.0",
     "ci-info": "1.5.1",
     "compression-webpack-plugin": "2.0.0",
     "connect-history-api-fallback": "1.5.0",
